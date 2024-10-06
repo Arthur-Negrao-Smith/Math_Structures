@@ -41,6 +41,9 @@ class Matrix:
         """
         Parameter:
             matrixB: Matrix which will do the multiplication
+        
+            Returns:
+                Will return the result of multiplication or return None if multiplication is invalid
         """
         if self.columns == matrixB.rows:
             temp_matrix = []
@@ -63,18 +66,20 @@ class Matrix:
         Parameter:
             matrixB: Matrix which will do the sum
         """
-        for row in range(0, self.rows):
-            for column in range(0, self.columns):
-                self.matrix[row][column] += matrixB.matrix[row][column]
+        if self.rows == matrixB.rows and self.columns == matrixB.columns:
+            for row in range(0, self.rows):
+                for column in range(0, self.columns):
+                    self.matrix[row][column] += matrixB.matrix[row][column]
 
     def subMatrix(self, matrixB: 'Matrix') -> None:
         """
         Parameter:
             matrixB: Matrix which will do the subtraction
         """
-        for row in range(0, self.rows):
-            for column in range(0, self.columns):
-                self.matrix[row][column] -= matrixB.matrix[row][column]
+        if self.rows == matrixB.rows and self.columns == matrixB.columns:
+            for row in range(0, self.rows):
+                for column in range(0, self.columns):
+                    self.matrix[row][column] -= matrixB.matrix[row][column]
 
     def skalar(self, skalar_number: int) -> None:
         """
@@ -98,12 +103,16 @@ class Matrix:
     def det2x2(self) -> float:
         """
         Will calculate the determinante of the current matrix
+
+        Returns:
+            Will return int if the matrix is 2x2 or None if isn't
         """
         if self.columns == self.rows and self.rows == 2:
             return self.matrix[0][0] * self.matrix[1][1] - self.matrix[0][1] * self.matrix[1][0]
         else:
             return None
 
+    # TODO det
     def det(self) -> float:
         pass
 
@@ -125,6 +134,7 @@ C = [
     [3, 4]
 ]
 
+# Testes para identificação das funções
 if __name__ == '__main__':
     matrixA = Matrix(A)
     matrixA.printMatrix()
