@@ -9,17 +9,6 @@ def scanColumn(matrix: list, column_pos: int) -> list:
         row_matrix.append(matrix[row][column_pos])
     return row_matrix
 
-# Protótipo do printMatrix sem classe
-'''
-def printMatrix(matrix) -> None:
-    rows = len(matrix)
-    columns = len(matrix[0])
-    for line in range(0, rows):
-        for column in range(0, columns):
-            print(matrix[line][column], end=' ')
-        print()
-'''
-
 # Classe das matriz
 class Matrix:
     def __init__(self, matrix: list) -> None:
