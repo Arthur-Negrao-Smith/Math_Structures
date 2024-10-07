@@ -38,9 +38,9 @@ class Matrix:
             temp_matrix = []
             for rowA in range(0, self.rows):
                 temp_list = []
+                temp_rowA = scanRow(self.matrix, rowA)
                 for columnB in range(0, self.columns):
                     number_result = 0
-                    temp_rowA = scanRow(self.matrix, rowA)
                     temp_columnB = scanColumn(matrixB.matrix, columnB)
                     for item in range(0, self.columns):
                         number_result += temp_rowA[item] * temp_columnB[item] 
